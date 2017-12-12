@@ -1,0 +1,76 @@
+/*重置样式*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,
+	form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;outline: none;}
+fieldset,img{border:0;}
+abbr,acronym{border:0;font-variant:normal;}
+ol,ul{list-style: none;}
+sup,sub{font-size:100%;vertical-align: baseline;}
+blockquote,q{quotes: none;}
+blockquote:before,blockquote:after,q:before,q:after{content: '';content: none;}
+a{text-decoration: none;}
+:link,:visited{text-decoration: none;}
+span,img{vertical-align: middle;}
+ 
+/*公用样式 */
+html,body{width: 100%;height: 100%;font-size: 16px;line-height: 1.6;font-family: "Microsoft yahei"}
+.clearfix{zoom:1;}
+.clearfix:after{content: '';height: 0;overflow: hidden;visibility: none;display: block;clear: both;}
+
+
+
+/*头部样式*/
+.header{width: 100%;font-size: 14px;background-color: rgba(255,255,255,.8);border-bottom:2px solid #518e54;
+	position: fixed;left: 0;top: 0;min-height: 74px;z-index: 2;}
+.header-nav{width: 80%;margin:0 auto;}
+.header-nav-left{float: left;width: 70%;overflow: hidden;}
+.header-nav-left-img{width: 100%;height: 46px;}
+.header-nav-left-img img{margin-top: 8px;}
+.header-nav-left-tab{margin-top: 4px;margin-bottom: 2px;overflow: hidden;}
+.header-nav-left-tab li{float: left;height: 24px;}
+.header-nav-left-tab li a{padding-right:28px;color:#080808;line-height: 1.4;}
+.header-nav-left-tab li a:hover{color:#518e54;}
+.header-nav-left-tab li a.search{background:url(../images/search-black.png)no-repeat center 2px;}
+.header-nav-left-tab li a.search:hover{background:url(../images/search-active.png)no-repeat center 2px;}
+
+.header-nav-right{float: right;width: 25%;overflow: hidden;}
+.header-nav-right-top{overflow: hidden;zoom:1;height: 22px;margin-top: 7px;}
+.header-nav-right-top .left{float: left;font-size: 0;}
+.header-nav-right-top .left .icon{display: inline-block;width: 20px;height: 21px;
+	background:url(../images/qq-test.jpg)no-repeat;background-size: 20px auto;border-radius: 50%;
+	border:2px solid #e6e6e6;box-sizing:border-box;margin-right: 4px;padding-bottom: 4px;}
+.header-nav-right-top .left span{display: inline-block;margin: 0;padding:0;height: 22px;padding-top: 2px;font-size: 12px;}
+.header-nav-right-top .left a{color:#333;font-size: 12px;padding:2px 0;height: 22px;}
+.header-nav-right-top .right{float: right;padding-left: 25px;padding-right:10px;color:#080808;font-size: 15px;
+	background: url(../images/message-icon.png)no-repeat 0 7px;background-size:auto 12px;}
+.header-nav-right-wether{float: right;width: 122px;}
+.header-nav-right-wether .tempter{text-align: right;}
+.header-nav-right-wether .tempter i{width: 22px;height: 22px;float: right;margin-right: 20px;
+	background:url(../images/arrow.png)no-repeat 4px 3px;}
+.header-nav-right-wether .data{text-align: center;font-size: 12px;color:#333;}
+
+	/*弹出推荐商品*/
+	.header-nav-right-wether .recod{height: 270px;border:1px solid #ccc;position: absolute;top:74px;
+		background-color:#fff;width: 122px;}
+	.header-nav-right-wether .recod img{width: 122px;height: auto;}
+	/*旗下品牌*/
+	#child-brand{position: absolute;top:76px;left: 0;width: 100%;background-color: #fff;padding:14px 0;
+		box-shadow: 0 0 8px #ccc;
+		}
+	#child-brand .center{width: 80%;margin: auto;text-align: center;display: table;
+		/*transition:all 0.3s linear;-webkit-transition:all 0.3s linear;
+	    -o-transition:all 0.3s linear;-ms-transition:all 0.3s linear;-moz-transition:all 0.3s linear;
+		transform:translate(0 128px);-webkit-transform:translate(0 128px);-o-transform:translate(0 128px);
+		-ms-transform:translate(0 128px);-moz-transform:translate(0 128px);*/}
+	#child-brand .center a,.wraper-center-childBrand a{display: table-cell;text-align: center;}
+	#child-brand .center img,.wraper-center-childBrand img{width: 100px;/*max-width: 100px;margin: auto;*/}
+
+	/*搜索栏*/
+	#search{width: 100%;padding:60px 0;background-color: #fff;position: absolute;top:76px;left: 0;}
+	#search .search-bar{width: 60%;margin:0 auto;height: 40px;border-radius: 20px;padding-left: 35px;border:1px solid #ccc;
+		box-sizing:border-box;}
+	#search .search-bar input[type=text]{width: 91%;height: 38px;border:none;color: #aaa;}
+	#search .search-bar input[type=submit]{width: 8%;height: 25px;border:none;line-height: 25px;border-left:2px solid #ccc;
+		background: url(../images/search-black.png)no-repeat 25px 4px;text-indent: -9999px;}
+
+
+/*底部样式*/

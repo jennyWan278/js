@@ -1,0 +1,42 @@
+/*中间主体部分*/
+	/*全屏轮播图*/
+	.wraper{width:100%;/*max-width:1920px;*/margin-top:74px;}
+	#wraper-slider{overflow: hidden;width: 100%;}
+	.slider-width{position: relative;width: 100%;}
+	
+	.slider-width ul{overflow: hidden;position: relative;left: 0;}
+	.slider-width ul li{float: left;max-width:1920px;}
+	.slider-width ul li a{display: block;}
+	.slider-width img{max-width: 100%;}
+
+	/*轮播图按钮*/
+	.slider-width .btn{width: 80px;height: 80px;position: absolute;top: 50%;margin-top: -40px;
+		background-image: url(about:blank);cursor: pointer;z-index: 2;
+		}
+	.slider-width .btn-left{left: 100px;}
+	.slider-width .btn-right{right: 100px;}
+	.slider-width .btn-left a{background: url(../images/home-left.png)no-repeat;background-size: 100% auto;
+		height: 80px;display: block;}
+	.slider-width .btn-right a{background: url(../images/home-right.png)no-repeat;background-size: 100% auto;
+		height: 80px;display:block;}
+
+
+	/*子品牌展示*/
+	.wrap{width: 100%;background: url(../images/bg.png)no-repeat center -105px;}
+	.wraper-center{width: 60%;margin: 0 auto;}
+	.wraper-center-childBrand{width: 100%;padding:50px 0;display: table;}
+	.wraper-center .wraper-center-childBrand img{width: 135px;}
+
+	/*模块化介绍*/
+	.wraper-center-block{padding:30px 0;}
+	.wraper-center-block-left{float: left;width: 38%;padding-top: 150px;}
+	.wraper-center-block-left img,.wraper-center-class-left img{width: 100%;}
+	.wraper-center-block-right{float: right;width: 62%;overflow: hidden;zoom:1;}
+	.wraper-center-block-right img,.wraper-center-class-right img{width: 100%;}
+
+	/*美丽课堂*/
+	.wrap-center{width: 100%;background: url(../images/bg2.png)no-repeat;background-size: 100% auto;}
+	.wrap-center-content{width: 60%;margin: 0 auto;}
+	.wraper-center-class{padding:40px 0;}
+	.wraper-center-class-left{float: left;width: 50%;}
+	.wraper-center-class-right{float: right;width: 50%;}
