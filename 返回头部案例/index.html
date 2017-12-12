@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>返回头部</title>
+	<style>
+	*{margin: 0;padding:0;}
+	.all{height: 3000px;width: 100%;background-color: #faaeae;}
+	#toTop{width: 50px;height: 50px;text-align: center;background-color: #aaffaa;cursor: pointer;display: none;}
+	#toTop:after{content: '';border-bottom:50px solid #aaffaa;border-top:none;position: absolute;
+	top: -50px;left: -25px;border-left:50px solid transparent;border-right:50px solid transparent;}
+	.fixed{position: fixed;bottom: 100px;right: 100px;}
+	</style>
+	<script>
+		window.onload=function(){
+			//scroll()方法函数
+			function scroll(){
+				return {
+					"top":document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset,
+					"left":document.body.scrollLeft||document.documentElement.scrollLeft||window.pageXOffset
+				}
+			}		
+			
+			//获取事件源及相关函数
+			var toTop=document.getElementById("toTop");
+			var leader=0;
+			var target=0;
+			var timer=null;
+			// 显示隐藏的小火箭
+			window.onscroll=function(){
+				if(scroll().top>1000)
+				{
+					toTop.style.display ="block";
+
+				}
+				else{
+					toTop.style.display="none";
+				}
+				leader=scroll().top;
+			}
+			//点击小火箭返回到页面顶部
+			toTop.onclick=function(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					var step=(target-leader)/10;
+					step=step>0? Math.ceil(step):Math.floor(step);
+					leader=leader+step;
+					window.scrollTo(0,leader);
+					if(leader===0)
+					{
+						clearInterval(timer);
+					}
+				},25)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="all"></div>
+	<div id="toTop" class="fixed">返回头部</div>
+</body>
+</html>

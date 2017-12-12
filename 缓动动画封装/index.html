@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+   
+        
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 40px;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0px;
+            top: 150px;
+        }
+    </style>
+</head>
+<body>
+	<button>移动1</button>
+	<button>移动2</button>
+	<div class="box1"></div>
+  <div class="box2"></div>
+<script>
+
+    var btnArr = document.getElementsByTagName("button");
+    var box1 = document.getElementsByClassName("box1")[0];
+    var box2 = document.getElementsByClassName("box2")[0];
+
+    //绑定事件
+ 	btnArr[0].onclick=function(){
+ 		animate(box1,400);
+ 	}
+  btnArr[1].onclick=function(){
+    animate(box2,800);
+  }
+
+  function animate(ele,target){
+  	clearInterval(ele.timer);
+  	ele.timer=setInterval(function(){
+      var speed=(target-ele.offsetLeft)/10;
+      speed=speed>0? Math.ceil(speed):Math.floor(speed);
+      ele.style.left=ele.offsetLeft+speed+'px';
+      if(Math.abs(target-ele.offsetLeft)<Math.abs(speed))
+      {
+        ele.style.left=target+'px';
+        clearInterval(ele.timer);
+      }
+    },50)
+  }
+
+</script>
+</body>
+</html>

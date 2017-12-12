@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>     
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 40px;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0px;
+            top: 150px;
+        }
+    </style>
+</head>
+<body>
+	<button>移动1</button>
+	<button>移动2</button>
+	<div class="box1"></div>
+  <!-- <div class="box2"></div> -->
+<script>
+    var btnArr = document.getElementsByTagName("button");
+    var box1 = document.getElementsByClassName("box1")[0];
+    // var box2 = document.getElementsByClassName("box2")[0];
+
+    //绑定事件
+ 	  btnArr[0].onclick=function(){
+      var json={"left":200,"top":200,"width":400,"height":400}
+ 		  animate(box1,json);
+ 	}
+    btnArr[1].onclick=function(){
+    animate(box2,"width",400);
+  }
+
+  function animate(ele,json){
+  	clearInterval(ele.timer);
+  	ele.timer=setInterval(function(){
+      var bool=true;
+      for(var k in json)
+      {
+        var leader=parseInt(getStyle(ele,k))||0;
+        var step=(json[k]-leader)/10;
+        step=step>0? Math.ceil(step):Math.floor(step);
+        leader=leader+step;
+        ele.style[k]=leader+'px';
+        //不考虑小数的情况：目标位置和当前位置不相等，就不能清除清除定时器。
+        if(json[k]!==leader)
+        {
+          bool=false;
+        }
+        if(bool)
+        {
+          clearInterval(ele.timer);
+        }
+      }
+    },25);
+  }
+  //兼容方法获取元素样式
+  function getStyle(ele,attr){
+    if(window.getComputedStyle)
+    {
+      return window.getComputedStyle(ele,null)[attr];
+    }
+    return ele.currentStyle[attr];
+  }
+
+
+</script>
+</body>
+</html>

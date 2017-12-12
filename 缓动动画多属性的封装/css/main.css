@@ -1,0 +1,4 @@
+*{margin:0;padding:0;}
+.all{width: 400px;background-color: #ccc;margin:0 auto;height: 100px;}
+.demo1{line-height: 1.6;background-color: pink;float: left;}
+.right{line-height: 1.6;background-color: #99f;padding-left: 100px;width: 200px;}

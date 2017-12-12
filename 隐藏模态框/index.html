@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>隐藏模态框</title>
+	<style>	
+		
+		html,body{height: 100%;padding:0;margin:0;}	
+		.mask{width: 100%;height: 100%;background-color: rgba(0,0,0,.6);position: fixed;display: none;}
+		.login{width: 400px;height: 300px;cursor: pointer;margin: 100px auto;background-color: #fff;}
+		a{text-decoration: none;color: #f00;font-weight: 500;}
+	</style>
+</head>
+<body>
+	<div class="mask">
+		<div class="login" id="login"></div>
+	</div>
+	<a href="#">登录</a>
+	<a href="#">注册</a>
+
+	<script>
+	window.onload=function(){
+
+
+		var mask=document.getElementsByClassName("mask")[0];
+		console.log(mask);
+		var loginBtn=document.getElementsByTagName("a")[0];
+		console.log(loginBtn);
+
+		loginBtn.onclick=function(event){
+			//显示模态框
+			mask.style.display="block";
+			//阻止冒泡
+			event=event||window.event;
+			if(event&&event.stopPropagation)
+			{
+				event.stopPropagation();
+			}
+			else
+			{
+				event.cancelBubble=true;
+			}
+			document.onclick=function(event){
+				 //获取点击按钮后传递过来的值。
+				event=event||window.event;
+				//兼容获取事件触动时，被传递过来的对象
+				var tat=event.target? event.target:event.srcElement;
+				//判断目标值的ID是否等于login，如果等于不隐藏盒子，否则隐藏盒子。
+				if(tat.id!=="login")
+				{
+					mask.style.display="none";
+				}
+			}
+		}
+		}
+	</script>
+</body>
+</html>

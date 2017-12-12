@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+      *{padding:0;margin:0;}
+       .nav{height: 30px;line-height: 30px;background-color: #24bdcd;color: #000;padding-left:20px;}
+       .box{width: 400px;position: absolute;top:20%;left: 30%;border:5px solid #eee; height: 280px;
+        background-color: #fff;box-shadow: 2px 2px 2px 2px #666;}
+        .hd{height: 30px;overflow: hidden;zoom:1;line-height: 30px;background-color: #cfcfcf;cursor: move;}
+        .hd i{float: left;}
+        .hd span{float: right;cursor: pointer;}
+        .bd{height: 250px;}
+    </style>
+</head>
+<body>
+    <div class="nav">注册信息</div>
+    <div class="box" id="box">
+        <div class="hd" id="drop">
+            <i>注册信息(可以拖拽)</i>
+            <span id="close">【关闭】</span>
+        </div>
+        <div class="bd"></div>
+    </div>
+
+    <script>
+
+    window.onload=function(){
+        //需求：按住鼠标左键，移动对话框
+        //scroll()方法的封装函数
+        function scroll(){
+            return {
+                "top":document.body.scrollTop||document.documentElement.scrollTop||document.pageYOffset,
+                "left":document.body.scrollLeft||document.documentElement.scrollLeft||document.pageXOffset
+            }
+        }
+        //获取事件源及相关函数
+        var box=document.getElementById("box");
+        var drop=document.getElementById("drop");
+        //鼠标按下事件
+        drop.onmousedown=function(event){
+            event=event||window.event;
+            var pagex = event.pageX || scroll().left + event.clientX;
+            var pagey = event.pageY || scroll().top + event.clientY;
+            var x=pagex-box.offsetLeft;  //获取鼠标在drag中的x坐标位置
+            var y=pagey-box.offsetTop;   //获取鼠标在drag中的y坐标位置
+            //在整个文档中拖动对话框事件
+            document.onmousemove=function(event){
+                event = event || window.event;
+                var xx = event.pageX || scroll().left + event.clientX;
+                var yy = event.pageY || scroll().top + event.clientY;
+                //二次操作鼠标位置，减去鼠标在drag中的坐标
+                xx=xx-x;
+                yy=yy-y;
+                //给box赋值
+                box.style.left=xx+"px";
+                box.style.top=yy+"px";
+                window.getSelection ? window.getSelection().removeAllRanges():document.selection.empty();
+            }
+        }
+        //事件解绑
+        drop.onmouseup=function(){
+            document.onmousemove=null;
+        }
+
+    }
+
+    </script>
+</body>
+</html>

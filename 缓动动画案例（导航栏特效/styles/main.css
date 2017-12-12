@@ -1,0 +1,10 @@
+*{padding:0;margin:0;}
+/*让li元素的层级最高，，可以显示字体，并且li元素在span元素上面还能显示cursor.让nav的层级最低，span可以覆盖在它上面*/
+.nav{width: 600px;height: 40px;margin:100px auto;background-color: #f99;border-radius: 5px;position: relative;
+	}
+.nav ul{font-size: 0;padding: 0 5px;cursor: pointer;}
+.nav li{display: inline-block;line-height: 40px;font-size: 14px;padding-right: 63px;position: relative;z-index: 3;}
+.nav ul li:last-child{padding:0;}
+.nav ul li a{text-decoration: none;color: #000;font-weight: 600;}
+.icon{height: 40px;width: 40px;border-radius: 20px 20px 0px 15px;background-color: rgba(145,245,189,.8);
+	position: absolute;top: 0;left:0;z-index: 1;display: block;background-image: url(about:blank);}
