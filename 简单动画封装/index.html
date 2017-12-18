@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
     <style>
-   
-        
+
+
         .box1 {
             width: 100px;
             height: 100px;
@@ -18,9 +17,9 @@
     </style>
 </head>
 <body>
-	<button>移动1</button>
-	<button>移动2</button>
-	<div class="box1"></div>
+<button>移动1</button>
+<button>移动2</button>
+<div class="box1"></div>
 
 <script>
 
@@ -29,23 +28,22 @@
     var box3 = document.getElementsByClassName("box3")[0];
 
     //绑定事件
- 	btnArr[0].onclick=function(){
- 		animate(box1,400);
- 	}
+    btnArr[0].onclick = function () {
+        animate(box1, 400);
+    }
 
-  function animate(ele,target){
-  	clearInterval(ele.timer);
-  	var speed=target>ele.offsetLeft? 2:-2;
-  	ele.timer=setInterval(function(){
-  		var val=target-ele.offsetLeft;
-  		ele.style.left=ele.offsetLeft+speed+'px';
-  		if(Math.abs(val)<Math.abs(speed))
-  		{
-  			ele.style.left=target+'px';
-  			clearInterval(ele.timer);
-  		}
-  	},50)
-  }
+    function animate(ele, target) {
+        clearInterval(ele.timer);
+        var speed = target > ele.offsetLeft ? 2 : -2;
+        ele.timer = setInterval(function () {
+            var val = target - ele.offsetLeft;
+            ele.style.left = ele.offsetLeft + speed + 'px';
+            if (Math.abs(val) < Math.abs(speed)) {
+                ele.style.left = target + 'px';
+                clearInterval(ele.timer);
+            }
+        }, 50)
+    }
 
 </script>
 </body>

@@ -1,55 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<title>固定导航栏</title>
-	<style>
-	*{padding:0;margin:0;}
-	.top{width: 100%;height: 100px;overflow: hidden;}
-	#nav{width: 100%;height: 60px;overflow: hidden;opacity: 0.5;}
-	#main{width: 960px;height: 600px;margin: 0 auto;overflow: hidden;}
-	.fixed{position: fixed;left: 0;top: 0;}
-	</style>
+    <meta charset="utf-8"/>
+    <title>固定导航栏</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
 
-	<script>
-	window.onload=function(){
-		//scroll()方法函数
-		function scroll(){
-			return {
-				"top":document.body.scrollTop||document.documentElement.scrollTop||document.pageYOffset,
-				"left":document.body.scrollLeft||document.documentElement.scrollLeft||document.pageXOffset
-			}
-		}
-		// 获取事件源及相关函数
-		var topDiv=document.getElementById("top");
-		var topHeight=topDiv.offsetHeight;
-		var middle=document.getElementById("nav");
-		var main=document.getElementById("main");
-		// 判断被卷去的头部的大小
-		window.onscroll=function(){
-			if(scroll().top>topHeight)
-			{
-				middle.className="fixed";
-				main.style.paddingTop=middle.offsetHeight+'px';
-			}
-			else{
-				middle.className=" ";
-				main.style.paddingTop='';
-			}
-		}
-		console.log(topHeight);
-	}
-	</script>
+        .top {
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        #nav {
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+            opacity: 0.5;
+        }
+
+        #main {
+            width: 960px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .fixed {
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            //scroll()方法函数
+            function scroll() {
+                return {
+                    "top": document.body.scrollTop || document.documentElement.scrollTop || document.pageYOffset,
+                    "left": document.body.scrollLeft || document.documentElement.scrollLeft || document.pageXOffset
+                }
+            }
+
+            // 获取事件源及相关函数
+            var topDiv = document.getElementById("top");
+            var topHeight = topDiv.offsetHeight;
+            var middle = document.getElementById("nav");
+            var main = document.getElementById("main");
+            // 判断被卷去的头部的大小
+            window.onscroll = function () {
+                if (scroll().top > topHeight) {
+                    middle.className = "fixed";
+                    main.style.paddingTop = middle.offsetHeight + 'px';
+                }
+                else {
+                    middle.className = " ";
+                    main.style.paddingTop = '';
+                }
+            }
+            console.log(topHeight);
+        }
+    </script>
 </head>
 <body>
-	<div class="top" id="top">
-		<img src="images/ad.jpg" >
-	</div>
-	<div id="nav">
-		<img src="images/nav.jpg" width="100%">
-	</div>
-	<div class="main" id="main">
-		<img src="images/main.jpg">
-	</div>
+<div class="top" id="top">
+    <img src="images/ad.jpg">
+</div>
+<div id="nav">
+    <img src="images/nav.jpg" width="100%">
+</div>
+<div class="main" id="main">
+    <img src="images/main.jpg">
+</div>
 </body>
 </html>
